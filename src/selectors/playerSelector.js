@@ -1,12 +1,10 @@
 import {createSelector} from 'reselect';
 
-// selectors:
 
 const players = (state) => state.player ? state.player.players : state.players;
 const turnPlayerId = (state) => state.player ? state.player.turnPlayerId : state.turnPlayerId;
 const totalCards = (state) => state.player ? state.player.totalCards : state.totalCards;
 
-// reselect functions:
 
 export const getPlayers = createSelector(
     [players],

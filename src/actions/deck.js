@@ -1,5 +1,5 @@
-import DeckApi from '../services/DeckApiService';
-import * as DeckActionTypes from '../actiontypes/deck';
+import DeckApi from '../services/CardDeckApiService';
+import * as DeckActionTypes from '../actionTypes/deck';
 import GameNotificationService from "../services/GameNotificationService";
 
 export const shuffleCards = () => {

@@ -1,8 +1,8 @@
-import * as PlayerActionTypes from "../actiontypes/player";
+import * as PlayerActionTypes from "../actionTypes/player";
 import {getPlayer, getPlayersByPileCardsTotal} from '../selectors/playerSelector';
-import * as DeckActionTypes from "../actiontypes/deck";
+import * as DeckActionTypes from "../actionTypes/deck";
 
-import {calculateMaxPileValue} from '../helpers';
+import {calculateMaxPileValue} from '../helperFunctions';
 
 const initialState = {
     players: [
@@ -138,7 +138,6 @@ export default function Player(state = initialState, action) {
 
             let winners = getPlayersByPileCardsTotal(maxValue)(state);
 
-     //       console.log("WINNERS: ", winners);
 
             return {
                 ...state,

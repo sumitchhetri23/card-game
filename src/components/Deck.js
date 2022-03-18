@@ -9,7 +9,7 @@ import {getDeckCards} from '../selectors/deckSelector';
 import {newRound} from "../actions/deck";
 import {moveCardsToPile} from "../actions/player";
 
-import {calculateRoundWinner} from '../helpers';
+import {calculateRoundWinner} from '../helperFunctions';
 
 class Deck extends Component {
 

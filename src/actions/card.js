@@ -1,8 +1,8 @@
-import * as ActionTypes from '../actiontypes/card';
+import * as ActionTypes from '../actionTypes/card';
 
-export const addCard = data => {
+export const getCard = data => {
     return {
-        type: ActionTypes.ADD_CARD,
+        type: ActionTypes.GET_CARD,
         data: data,
     }
 };

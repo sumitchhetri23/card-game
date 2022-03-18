@@ -1,6 +1,6 @@
 import ApiService from './ApiService';
 
-class DeckApiService {
+class CardDeckApiService {
 
     static shuffleCards(deck_count = 1) {
         return new Promise((resolve, reject) => {
@@ -22,4 +22,4 @@ class DeckApiService {
 
 }
 
-export default DeckApiService;
+export default CardDeckApiService;

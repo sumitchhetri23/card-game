@@ -9,7 +9,7 @@ import {updateTurn} from '../actions/player';
 import {getPlayerHandCards, isPlayerTurn} from '../selectors/playerSelector';
 import {subscribe} from "redux-subscriber";
 import GameNotificationService from "../services/GameNotificationService";
-import {valueOfCard} from '../helpers';
+import {valueOfCard} from '../helperFunctions';
 class Game extends Component {
 
     componentDidMount() {

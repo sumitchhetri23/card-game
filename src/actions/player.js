@@ -1,6 +1,6 @@
-import * as PlayerActionTypes from "../actiontypes/player";
-import PlayerApi from "../services/PlayerApiService";
-import {commaSeparatedCodes} from '../helpers';
+import * as PlayerActionTypes from "../actionTypes/player";
+import PlayerApi from "../services/CardPlayerApiService";
+import {commaSeparatedCodes} from '../helperFunctions';
 import {newRound} from "./deck";
 
 import {getPlayer, getTotalCards} from "../selectors/playerSelector";

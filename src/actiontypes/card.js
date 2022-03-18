@@ -1,1 +1,1 @@
-export const ADD_CARD = 'card/ADD_CARD';
+export const GET_CARD = 'card/GET_CARD';
