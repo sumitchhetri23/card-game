@@ -1,4 +1,4 @@
-import * as ActionTypes from '../actionTypes/card';
+import * as ActionTypes from '../actiontypes/card';
 
 export const getCard = data => {
     return {

@@ -1,6 +1,6 @@
-import * as PlayerActionTypes from "../actionTypes/player";
+import * as PlayerActionTypes from "../actiontypes/player";
 import {getPlayer, getPlayersByPileCardsTotal} from '../selectors/playerSelector';
-import * as DeckActionTypes from "../actionTypes/deck";
+import * as DeckActionTypes from "../actiontypes/deck";
 
 import {calculateMaxPileValue} from '../helperFunctions';
 
