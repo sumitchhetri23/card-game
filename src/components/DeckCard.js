@@ -10,7 +10,7 @@ class DeckCard extends Component {
     render() {
         const {cardInfo} = this.props;
 
-        return (<div className="deck-card"><img src={cardInfo.card.image} alt="Card"/></div>);
+        return (<div className="all-card"><img src={cardInfo.card.image} alt="Card"/></div>);
     }
 }
 

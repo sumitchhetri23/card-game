@@ -1,8 +1,8 @@
-import * as PlayerActionTypes from "../actiontypes/player";
+import * as CardPlayerActionTypes from "../actionTypes/cardPlayer";
 import {getPlayer, getPlayersByPileCardsTotal} from '../selectors/playerSelector';
-import * as DeckActionTypes from "../actiontypes/deck";
+import * as CardDeckActionTypes from "../actionTypes/cardDeck";
 
-import {calculateMaxPileValue} from '../helperFunctions';
+import {calculateMaxCardValue} from '../helpers';
 
 const initialState = {
     players: [
@@ -26,13 +26,13 @@ const initialState = {
     winners: []
 };
 
-export default function Player(state = initialState, action) {
+export default function cardPlayer(state = initialState, action) {
 
     let players = state.players;
 
     switch (action.type) {
 
-        case PlayerActionTypes.DRAW_CARDS_SUCCESS:
+        case CardPlayerActionTypes.GET_CARD_SUCCESS:
 
             players = state.players.map((player, index) => {
 
@@ -54,7 +54,7 @@ export default function Player(state = initialState, action) {
             };
 
 
-        case PlayerActionTypes.THROW_CARD:
+        case CardPlayerActionTypes.SHOW_CARD:
 
             players = state.players.map((player, index) => {
 
@@ -82,7 +82,7 @@ export default function Player(state = initialState, action) {
             };
 
 
-        case PlayerActionTypes.UPDATE_TURN:
+        case CardPlayerActionTypes.NEXT_TURN:
 
             let player = getPlayer(action.current_player_id)(state);
 
@@ -100,7 +100,7 @@ export default function Player(state = initialState, action) {
             };
 
 
-        case PlayerActionTypes.MOVE_CARDS_TO_PILE_SUCCESS:
+        case CardPlayerActionTypes.ADD_CARD_TO_PILE_SUCCESS:
 
             players = state.players.map((player, index) => {
 
@@ -125,16 +125,16 @@ export default function Player(state = initialState, action) {
             };
 
 
-        case DeckActionTypes.NEW_ROUND:
+        case CardDeckActionTypes.NEW_GAME:
 
             return {
                 ...state,
                 turnPlayerId: 1
             };
 
-        case PlayerActionTypes.CALCULATE_WINNER:
+        case CardPlayerActionTypes.FIND_WINNER:
 
-            const maxValue = calculateMaxPileValue(state.players);
+            const maxValue = calculateMaxCardValue(state.players);
 
             let winners = getPlayersByPileCardsTotal(maxValue)(state);
 

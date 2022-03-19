@@ -30,11 +30,11 @@ class Card extends Component {
         }
 
         return (
-            <div className="single-card">
+            <div className="one-card">
 
                 {showCardOption}
                 <div className="text-center">
-                <img src={card.image} alt="Card"/>
+                <img src={card.image} alt="card image"/>
                 </div>
             </div>
         );

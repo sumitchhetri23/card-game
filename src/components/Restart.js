@@ -5,10 +5,10 @@ class Restart extends Component {
 
     render() {
         return (
-            <div className="actions m-3">
+            <div className="m-5">
                         <div className="text-center">
 
-                            <a href="/" className="btn btn-info btn-md">Restart</a>
+                            <a href="/" className="btn btn-primary btn-md">Restart</a>
                 </div>
             </div>
         );

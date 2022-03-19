@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-
-import Player from "./Player";
-import DeckCard from "./DeckCard";
-
 import {getPlayers} from '../selectors/playerSelector';
 import {getDeckCards} from '../selectors/deckSelector';
-import {newRound} from "../actions/deck";
-import {moveCardsToPile} from "../actions/player";
+import Player from "./CardPlayer";
+import DeckCard from "./DeckCard";
+import {newGame} from "../actions/deck";
+import {addCardToPile} from "../actions/player";
+import {calculateRoundWinner} from '../helpers';
 
-import {calculateRoundWinner} from '../helperFunctions';
-
-class Deck extends Component {
+class Desk extends Component {
 
     onEndOfRound = () => {
 
         let winnerCard = calculateRoundWinner(this.props.deck_cards);
 
-        this.props.moveCardsToPile(winnerCard.player_id, this.props.deck_cards);
+        this.props.addCardToPile(winnerCard.player_id, this.props.deck_cards);
     };
 
     render() {
@@ -36,16 +33,16 @@ class Deck extends Component {
         });
 
         return (
-            <div className="board">
+            <div className="desk">
 
 
-                <div className="desk rounded-circle">
+                <div className="rounded-circle game">
 
 
                     {playerComponents}
 
 
-                    <div className="inner-desk">
+                    <div className="inner-game">
 
                         {cardComponents}
 
@@ -70,9 +67,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        newRound: () => dispatch(newRound()),
-        moveCardsToPile: (pile_name, cards) => dispatch(moveCardsToPile(pile_name, cards))
+        newGame: () => dispatch(newGame()),
+        addCardToPile: (pile_name, cards) => dispatch(addCardToPile(pile_name, cards))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Deck);
+export default connect(mapStateToProps, mapDispatchToProps)(Desk);

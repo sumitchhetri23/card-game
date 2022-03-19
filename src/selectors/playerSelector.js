@@ -18,7 +18,7 @@ export const getPlayer = (id) => createSelector(
     }
 );
 
-export const getPlayerHandCards = (player_id) => createSelector(
+export const getPlayerCard = (player_id) => createSelector(
     [players],
     (players) => {
         const player = players.find((player) => player.id === player_id);
@@ -26,7 +26,7 @@ export const getPlayerHandCards = (player_id) => createSelector(
     }
 );
 
-export const isPlayerTurn = (player_id) => createSelector(
+export const checkPlayerTurn = (player_id) => createSelector(
     [players, turnPlayerId],
     (players, turnPlayerId) => {
         const player = players.find((player) => player.id === player_id);

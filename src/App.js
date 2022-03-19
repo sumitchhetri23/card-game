@@ -6,7 +6,7 @@ import {
     Redirect
 } from 'react-router-dom';
 
-import Game from './components/Game';
+import Lobby from './components/Lobby';
 import ContentNotFound from "./components/ContentNotFound";
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
 
                 <div className="main-content">
                     <Switch>
-                        <Route exact path="/play" component={Game}/>
+                        <Route exact path="/play" component={Lobby}/>
                         <Route exact path="/" render={() => <Redirect to="/play"/>}/>
                         <Route component={ContentNotFound}/>
                     </Switch>

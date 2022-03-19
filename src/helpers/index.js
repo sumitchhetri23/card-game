@@ -36,19 +36,19 @@ export const calculateRoundWinner = (cardList) => {
     return greaterCard;
 };
 
-export const commaSeparatedCodes = (cards) => {
-    let codesString = "";
+export const getCommaSeparatedCodes = (cards) => {
+    let codes = "";
 
-    for (let cardInfo of cards) {
+    for (let cardData of cards) {
 
-        codesString += (cardInfo.card.code + ',');
+        codes += (cardData.card.code + ',');
 
     }
 
-    return codesString.slice(0, -1);
+    return codes.slice(0, -1);
 };
 
-export const calculateMaxPileValue = (players) => {
+export const calculateMaxCardValue = (players) => {
 
     const values = players.map(player => player.pile_cards.length);
     return Math.max(...values);

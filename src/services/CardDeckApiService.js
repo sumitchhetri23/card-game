@@ -6,15 +6,15 @@ class CardDeckApiService {
         return new Promise((resolve, reject) => {
 
             return ApiService.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${deck_count}`)
-                .then(response => {
-                    if (response.data.success) {
-                        return resolve(response.data);
+                .then(res => {
+                    if (res.data.success) {
+                        return resolve(res.data);
                     } else {
-                        throw response.data;
+                        throw res.data;
                     }
                 })
-                .catch(response => {
-                    return response;
+                .catch(res => {
+                    return res;
                 });
 
         });

@@ -2,21 +2,20 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {subscribe} from 'redux-subscriber';
 import {connect} from 'react-redux';
-
-import * as PlayerActions from '../actions/player';
-import {showCard, updateTurn} from "../actions/player";
 import {getPlayer} from '../selectors/playerSelector';
+import { newGame } from '../actions/deck';
+import * as CardPlayerActions from '../actions/player';
+import {showCard, nextTurn} from "../actions/player";
 
-class Player extends Component {
+class CardPlayer extends Component {
 
     static propTypes = {
         player: PropTypes.object.isRequired,
-        endOfRound: PropTypes.func.isRequired,
     };
 
     componentDidMount() {
         subscribe('deck.deck_id', state => {
-            this.props.drawCards(state.deck.deck_id, this.props.player.id, 1);
+            this.props.getCard(state.deck.deck_id, this.props.player.id, 1);
         });
 
         subscribe('player.turnPlayerId', state => {
@@ -36,7 +35,7 @@ class Player extends Component {
 
                     } else {
 
-                        this.props.updateTurn(this.props.player.id);
+                        this.props.nextTurn(this.props.player.id);
                     }
 
                 }, 2000);
@@ -72,16 +71,16 @@ class Player extends Component {
             return <img src="/images/card-back.jpg" alt="Card Back" key={index}/>;
         });
 
-        const turnCss = player.id === turnPlayerId ? 'your-turn' : '';
+        const turnCss = player.id === turnPlayerId ? 'player-turn' : '';
 
         return (
-            <div className={`player-zone pz-${player.id} ${turnCss}`}>
+            <div className={`gamer-area player-${player.id} ${turnCss}`}>
 
                 <p className="text-center player-name"><strong>{player.name}</strong></p>
 
                 <img src="/images/user.svg" alt="User"/>
 
-                <div className="hidden-cards">
+                <div className="underhanded-cards">
 
                     {hand_cards}
 
@@ -99,10 +98,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        drawCards: (deck_id, player_id, count) => dispatch(PlayerActions.drawCards(deck_id, player_id, count)),
+        getCard: (deck_id, player_id, count) => dispatch(CardPlayerActions.getCard(deck_id, player_id, count)),
         showCard: (player_id, card) => dispatch(showCard(player_id, card)),
-        updateTurn: (player_id) => dispatch(updateTurn(player_id)),
+        nextTurn: (player_id) => dispatch(nextTurn(player_id)),
+        newGame: () => dispatch(newGame())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(CardPlayer);
