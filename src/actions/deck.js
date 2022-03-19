@@ -1,5 +1,5 @@
 import CardDeckApi from '../services/CardDeckApiService';
-import * as CardDeckActionTypes from '../actionTypes/cardDeck';
+import * as CardDeckActionTypes from '../actiontypes/cardDeck';
 import GameNotificationService from "../services/GameNotificationService";
 
 export const saveDeckId = deck_id => {

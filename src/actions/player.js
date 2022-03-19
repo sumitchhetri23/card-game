@@ -1,4 +1,4 @@
-import * as CardPlayerActionTypes from "../actionTypes/cardPlayer";
+import * as CardPlayerActionTypes from "../actiontypes/cardPlayer";
 import CardPlayerApi from "../services/CardPlayerApiService";
 import {getCommaSeparatedCodes} from '../helpers';
 import {newGame} from "./deck";

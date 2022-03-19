@@ -1,5 +1,5 @@
-import * as CardDeckActionTypes from '../actionTypes/cardDeck';
-import * as CardPlayerActionTypes from '../actionTypes/cardPlayer';
+import * as CardDeckActionTypes from '../actiontypes/cardDeck';
+import * as CardPlayerActionTypes from '../actiontypes/cardPlayer';
 
 const initialState = {
     deck_id: null,
